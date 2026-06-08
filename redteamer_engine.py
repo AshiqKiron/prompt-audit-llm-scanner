@@ -19,7 +19,7 @@ class EvaluationResult(BaseModel):
 
 class RedTeamerEngine:
     def __init__(self, api_key: str):
-        self.llm = ChatGroq(temperature=0.2, model_name="llama3-70b-8192", groq_api_key=api_key)
+        self.llm = ChatGroq(temperature=0.2, model_name="llama-3.3-70b-versatile", groq_api_key=api_key)
         self.json_parser_attacks = JsonOutputParser(pydantic_object=AttackList)
         self.json_parser_eval = JsonOutputParser(pydantic_object=EvaluationResult)
 
@@ -46,7 +46,7 @@ class RedTeamerEngine:
         return result.get("attacks", [])
 
     def get_target_response(self, system_prompt: str, attack_prompt: str) -> str:
-        target_llm = ChatGroq(temperature=0.7, model_name="llama3-8b-8192", groq_api_key=api_key)
+        target_llm = ChatGroq(temperature=0.7, model_name="llama-3.3-70b-versatile", groq_api_key=api_key)
         messages = [("system", system_prompt), ("human", attack_prompt)]
         response = target_llm.invoke(messages)
         return response.content
