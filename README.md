@@ -6,6 +6,11 @@
 
 ---
 
+
+### Screenshot one - Audit Report ![Screenshot 1](audit-scanner.png)
+### Screenshot two - Audit Scanner ![Screenshot 2](audit-report.png)
+
+
 ## 📖 Overview
 
 The **Prompt Audit Scanner** is a specialized web application designed for AI developers, security researchers, and red teamers. It allows users to input a target LLM system prompt and automatically audits it for common vulnerabilities, including:
